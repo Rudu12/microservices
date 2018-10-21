@@ -20,7 +20,7 @@ node {
 
         sh "kubectl set image deployment/demoapp-demochart demochart=${imageName}"
         sh "kubectl rollout status deployment/demoapp-demochart"
-        */
-}
+        
+}*/
 }
 }
