@@ -1,5 +1,6 @@
 node {
     dir("/root/"){
+    echo 'Testing conection'
     checkout scm
 
     env.DOCKER_API_VERSION="1.23"
