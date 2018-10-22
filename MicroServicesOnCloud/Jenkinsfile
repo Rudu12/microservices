@@ -2,10 +2,14 @@ node{
   checkout scm
   stage('Build'){
     echo 'Builing....'
+    def mvn_version = 'Maven'
+    withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
     sh 'mvn clean'
     echo 'cleaned'
     sh 'mvn build'
     echo 'built'
+}
+   
   }
   stage('Test'){
     echo 'Testing...'
