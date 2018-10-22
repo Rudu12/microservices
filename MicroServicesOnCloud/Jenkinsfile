@@ -1,6 +1,6 @@
 node{
   checkout scm
-  stage('Build'){
+/*  stage('Build'){
     echo 'Builing....'
  //   git url: 'git@github.com:Rudu12/microservices.git'
     def mvn_version = 'Maven'
@@ -11,7 +11,25 @@ node{
     echo 'packaged'
 }
    
-  }
+  }*/
+  env.DOCKER_API_VERSION="1.17"
+
+    appName = "MicroServicesOnCloud"
+
+    registryHost = "mycluster.icp:8500/"
+
+    imageName = "${registryHost}${appName}:${env.BUILD_ID}"
+
+    env.BUILDIMG=imageName
+
+   // docker.withRegistry('https://mycluster.icp:8500/', 'docker'){
+
+    stage "Build"
+
+        def pcImg = docker.build("mycluster.icp:8500/default/flask-app:${env.BUILD_ID}", "-f Dockerfile.ppc64le .")
+
+        sh "cp /root/.dockercfg ${HOME}/.dockercfg"
+  
   stage('Test'){
     echo 'Testing...'
   }
