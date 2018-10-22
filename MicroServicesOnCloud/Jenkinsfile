@@ -26,7 +26,7 @@ node{
 echo 'before build...'
     stage "Build"
 
-        def pcImg = docker.build("mycluster.icp:8500/MicroServicesOnCloud:${env.BUILD_ID}", "-f Dockerfile.ppc64le .")
+        def pcImg = docker.build("mycluster.icp:8500/microservices:${env.BUILD_ID}", "-f Dockerfile.ppc64le .")
   echo 'iamge created ....'
         sh "cp /root/.dockercfg ${HOME}/.dockercfg"
   
