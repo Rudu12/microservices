@@ -19,15 +19,15 @@ node{
     registryHost = "mycluster.icp:8500/"
 
     imageName = "${registryHost}${appName}:${env.BUILD_ID}"
-
+  echo imageName
     env.BUILDIMG=imageName
 
    // docker.withRegistry('https://mycluster.icp:8500/', 'docker'){
-
+echo 'before build...'
     stage "Build"
 
-        def pcImg = docker.build("mycluster.icp:8500/default/flask-app:${env.BUILD_ID}", "-f Dockerfile.ppc64le .")
-
+        def pcImg = docker.build("mycluster.icp:8500/MicroServicesOnCloud:${env.BUILD_ID}", "-f Dockerfile.ppc64le .")
+  echo 'iamge created ....'
         sh "cp /root/.dockercfg ${HOME}/.dockercfg"
   
   stage('Test'){
