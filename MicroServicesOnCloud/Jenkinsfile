@@ -2,7 +2,10 @@ node{
   checkout scm
   stage('Build'){
     echo 'Builing....'
-    
+    sh 'mvn clean'
+    echo 'cleaned'
+    sh 'mvn build'
+    echo 'built'
   }
   stage('Test'){
     echo 'Testing...'
