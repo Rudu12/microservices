@@ -2,7 +2,7 @@ node{
   checkout scm
   stage('Build'){
     echo 'Builing....'
-    git url: 'git@github.com:Rudu12/microservices.git'
+ //   git url: 'git@github.com:Rudu12/microservices.git'
     def mvn_version = 'Maven'
     withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
     sh 'mvn clean -f MicroServicesOnCloud'
