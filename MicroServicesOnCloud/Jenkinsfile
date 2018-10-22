@@ -7,8 +7,8 @@ node{
     withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
     sh 'mvn clean -f MicroServicesOnCloud'
     echo 'cleaned'
-    //sh 'mvn build'
-    //echo 'built'
+    sh 'mvn package'
+    echo 'packaged'
 }
    
   }
