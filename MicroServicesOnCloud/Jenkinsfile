@@ -28,9 +28,9 @@ echo 'before build...'
 
   def mvn_version = 'Maven'
     withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
-    sh 'mvn clean -f MicroServicesOnCloud'
+    sh 'mvn clean package -f MicroServicesOnCloud'
     echo 'cleaned'
-    sh 'mvn package'
+   // sh 'mvn package'
     echo 'packaged'
     }
         def pcImg = docker.build("mycluster.icp:8500/microservices:${env.BUILD_ID}", "-f Dockerfile.ppc64le .")
