@@ -28,7 +28,7 @@ echo 'before build...'
 
         def pcImg = docker.build("mycluster.icp:8500/microservices:${env.BUILD_ID}", "-f Dockerfile.ppc64le .")
   echo 'iamge created ....'
-        sh "cp /root/.dockercfg ${HOME}/.dockercfg"
+       // sh "cp /root/.dockercfg ${HOME}/.dockercfg"
 
   stage('Test'){
     echo 'Testing...'
