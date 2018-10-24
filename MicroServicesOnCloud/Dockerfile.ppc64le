@@ -1,1 +1,9 @@
-///test for connectivity
+# base image
+
+FROM openjdk:8-jdk
+
+#do for config
+
+RUN bin/bash -c 'echo for test'
+
+ENV myCustomEnvVar="This is a Sample."
