@@ -32,7 +32,7 @@ echo 'before build...'
     echo 'cleaned'
     sh 'mvn package'
     echo 'packaged'
-      
+    }
         def pcImg = docker.build("mycluster.icp:8500/microservices:${env.BUILD_ID}", "-f Dockerfile.ppc64le .")
   echo 'iamge created ....'
        // sh "cp /root/.dockercfg ${HOME}/.dockercfg"
