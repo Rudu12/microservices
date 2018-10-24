@@ -26,6 +26,13 @@ env.DOCKER_API_VERSION="1.17"
 echo 'before build...'
     stage "Build"
 
+  def mvn_version = 'Maven'
+    withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+    sh 'mvn clean -f MicroServicesOnCloud'
+    echo 'cleaned'
+    sh 'mvn package'
+    echo 'packaged'
+      
         def pcImg = docker.build("mycluster.icp:8500/microservices:${env.BUILD_ID}", "-f Dockerfile.ppc64le .")
   echo 'iamge created ....'
        // sh "cp /root/.dockercfg ${HOME}/.dockercfg"
