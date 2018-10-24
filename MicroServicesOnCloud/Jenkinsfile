@@ -1,6 +1,6 @@
 node{
   checkout scm
-  stage('Build'){
+  /*stage('Build'){
     echo 'Builing....'
  //   git url: 'git@github.com:Rudu12/microservices.git'
     def mvn_version = 'Maven'
@@ -11,8 +11,8 @@ node{
     echo 'packaged'
 }
    
-  }
-/*  env.DOCKER_API_VERSION="1.17"
+  }*/
+env.DOCKER_API_VERSION="1.17"
 
     appName = "MicroServicesOnCloud"
 
@@ -22,14 +22,14 @@ node{
   echo imageName
     env.BUILDIMG=imageName
 
-   // docker.withRegistry('https://mycluster.icp:8500/', 'docker'){
+   //docker.withRegistry('https://mycluster.icp:8500/', 'docker'){
 echo 'before build...'
     stage "Build"
 
         def pcImg = docker.build("mycluster.icp:8500/microservices:${env.BUILD_ID}", "-f Dockerfile.ppc64le .")
   echo 'iamge created ....'
         sh "cp /root/.dockercfg ${HOME}/.dockercfg"
-  */
+
   stage('Test'){
     echo 'Testing...'
   }
