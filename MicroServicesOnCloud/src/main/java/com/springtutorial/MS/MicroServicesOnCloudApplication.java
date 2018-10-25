@@ -8,3 +8,5 @@ public class MicroServicesOnCloudApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MicroServicesOnCloudApplication.class, args);
+	}
+}
